@@ -1,8 +1,21 @@
 listsFunction = function() {
+    /*
+    if(documentTagReady) {
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+        console.log("come list function =",time);
+    }
+    */
     url = "/list.php";
     successFunction = function(result) {
+        /*
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+        console.log("come success list event =",time);
+        */
         var resultDiv = $("#resultDiv");
         var objs = $.parseJSON(result); 
+        // list of dict
         var txtResults = "";
         txtResults += "<table class='table'>";
         txtResults += "<thead>";
@@ -20,6 +33,7 @@ listsFunction = function() {
             var lineHtml = '';
             
             var currentItem = objs[i];
+            //dict
             var currentId = currentItem['id'];
             var currentFirstName = currentItem['firstname']
             var currentLastName = currentItem['lastname'];
@@ -56,32 +70,63 @@ listsFunction = function() {
         txtResults += "</table>";
         resultDivText = resultDiv.html(txtResults);
         showIdFunction = function(event) {
+            /*
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+            console.log("come showIdFunction =",time);
+            */
             var eventParam = event;
+            // event object
             var targetObj = eventParam.target;
-            var id = targetObj['id'].slice(8,18);
+            //dict input key type , key value , key class , key id
+            var btnShowId = targetObj['id'];
+            //string Ex 'btnShow_1234567891'
+            var id = btnShowId.slice(8,18);
+            //string '1234567891';
             var resultData;
             for(i=0;i<objs.length;i++) {
                 if(id == String(objs[i]['id'])) {
                     resultData = objs[i];
                 }
             }
+            currentData = resultData;
+            //dict of key string value string 
+            currentFirstNameData = currentData['firstname'];
+            currentLastNameData = currentData['lastname'];
+            currentNickNameData = currentData['nickname']
+            //string 
+            
+            //dict
             firstname = $("#firstname");
-            fistnameShow = firstname.val(resultData['firstname']);
+            fistnameShow = firstname.val(currentFirstNameData);
+            // input html object
             firstnameDisabled = firstname.prop('disabled',true);
+            // input html object
             lastname = $("#lastname");
-            lastnameShow = lastname.val(resultData['lastname']);
+            lastnameShow = lastname.val(currentLastNameData);
             lastnameDisabled = lastname.prop('disabled',true);
             nickname = $("#nickname");
-            nicknameShow = nickname.val(resultData['nickname']);
+            nicknameShow = nickname.val(currentNickNameData);
             nicknameDisabled = nickname.prop('disabled',true);
         }
         var i = 0;
         var btns = [];
         var btnsOnClicks = [];
         for(i;i<objs.length;i++) {
-            buttonId = "btnShow_"+objs[i]['id'];
-            btns[i] = $("#"+buttonId);
+            buttonShowString = "btnShow_";
+            button = objs[i];
+            //dict key id , firstname , lastname , nickname
+            buttonId = button['id'];
+            //integer
+            buttonShowId = buttonShowString+buttonId;
+            // string
+            btns[i] = $("#"+buttonShowId);
             btnsOnClicks[i] = btns[i].click(showIdFunction);
+            /*
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+            console.log("register btn On Click = ",time,buttonId);
+            */
         }
     }
     ajaxParams = {
@@ -90,4 +135,10 @@ listsFunction = function() {
         success: successFunction
     }
     callAjax = $.ajax(ajaxParams);
+    /*
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+    console.log("register $.ajx function =",time);
+    */
+    
 };

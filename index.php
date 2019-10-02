@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="/list.js"></script>
-     <script src="/show.js"></script>
+    <script src="/show.js"></script>
     <script src="/create.js"></script>
 </head>
 <body>
@@ -27,11 +27,34 @@
     <script type="text/javascript">
         documentTag = $(document);
         readyFunction = function() {
+            /*
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+            console.log("come ready function =",time);
+            */
             lists = listsFunction();
+            //lists type = undefined
+            /*
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+            console.log("register lists function =",time);
+            */
             btnSave = $("#btnSave");
             btnSaveOnClick = btnSave.click(btnSaveFunction);
+            /*
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+            console.log("register .click =",time);
+            */
         };
-        documentTagReady = documentTag.ready(readyFunction); 
+        documentTagReady = documentTag.ready(readyFunction);
+        /*
+        if(documentTagReady) {
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
+            console.log("register ready =",time);
+        }
+        */
     </script>
     </div>
 
