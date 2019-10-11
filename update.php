@@ -1,25 +1,23 @@
 <?php
     $firstname = $_GET['firstname'];
-    echo(gettype($_GET['firstname']));
-    exit();
+    //echo(gettype($_GET['firstname']));
+    //exit();
     $lastname = $_GET['lastname'];
     $nickname = $_GET['nickname'];
     $id = rand(1111111111,9999999999);
-    $data = [];
-    $rows =  file_get_contents("results.json"); // return type string
-    $array = json_decode($rows, 'true'); // return list of dict or array size = 0
-    $fp = fopen('results.json', 'r');   // return type resource
     $results = [];
-    $results['id'] = $id;
-    $results['firstname'] = $firstname;
-    $results['lastname'] = $lastname;
-    $results['nickname'] = $nickname;
-    array_push($data,$results); // array_push return type int
-    for($i=0;$i<sizeof($array);$i++) {
-        array_push($data,$array[$i]); // array_push return type int
+    $input_data = [];
+    $input_data['id'] = $id;
+    $input_data['firstname'] = $firstname;
+    $input_data['lastname'] = $lastname;
+    $input_data['nickname'] = $nickname;
+    array_push($results,$input_data);
+    $file_get_contents =  file_get_contents("results.json"); // return type string
+    $file_decode_contents = json_decode($file_get_contents);
+    for($i=0;$i<sizeof($file_decode_contents);$i++) {
+        array_push($results,$file_decode_contents[$i]);
     }
-    $fp = fopen('results.json', 'w'); //return type resource
-    $file_write = fwrite($fp, json_encode($data)); //json_encode($data) return type string : $file_write type = integer
-    $file_close = fclose($fp); // type boolean value = true
-    echo("CREATE");
+    $results_encode = json_encode($results);
+    $file_put_contents = file_put_contents("results.json",$results_encode);
+    echo("CREATED");
 ?>

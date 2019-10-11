@@ -11,18 +11,15 @@ btnSaveFunction = function() {
     nicknameTag = $("#nickname");
     nickname = nicknameTag.val(); 
     url = "/update.php?firstname="+firstname+"&"+"lastname="+lastname+"&"+"nickname="+nickname 
-    successFunction = function(result) {
-        var dt = new Date();
-        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-        console.log("btnSaveFunction successFunction=",time);
-        console.log("CREATE");
-    resultDiv = $("#resultDiv");
-        resultDivText = resultDiv.text(result);
+    successCreateFunction = function(result) {
+        
+       console.log(result);
+        
     }
-    ajaxParams = {
+    ajaxCreateParams = {
         type: "GET",
         url: url,
-        success: successFunction
+        success: successCreateFunction
     }
-    callAjax = $.ajax(ajaxParams);
+    callAjax = $.ajax(ajaxCreateParams);
 };

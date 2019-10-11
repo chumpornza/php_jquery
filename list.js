@@ -7,7 +7,7 @@ listsFunction = function() {
     }
     */
     url = "/list.php";
-    successFunction = function(result) {
+    successListFunction = function(result) {
         /*
         var dt = new Date();
         var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
@@ -129,12 +129,12 @@ listsFunction = function() {
             */
         }
     }
-    ajaxParams = {
+    ajaxListParams = {
         type: "GET",
         url: url,
-        success: successFunction
+        success: successListFunction
     }
-    callAjax = $.ajax(ajaxParams);
+    callAjax = $.ajax(ajaxListParams);
     /*
     var dt = new Date();
     var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();

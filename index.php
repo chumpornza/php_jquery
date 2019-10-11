@@ -40,6 +40,7 @@
             console.log("register lists function =",time);
             */
             btnSave = $("#btnSave");
+            
             btnSaveOnClick = btnSave.click(btnSaveFunction);
             /*
             var dt = new Date();
