@@ -1,18 +1,8 @@
 listsFunction = function() {
-    /*
-    if(documentTagReady) {
-        var dt = new Date();
-        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-        console.log("come list function =",time);
-    }
-    */
+    
     url = "/list.php";
     successListFunction = function(result) {
-        /*
-        var dt = new Date();
-        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-        console.log("come success list event =",time);
-        */
+       
         var resultDiv = $("#resultDiv");
         var objs = $.parseJSON(result); 
         // list of dict
@@ -70,11 +60,7 @@ listsFunction = function() {
         txtResults += "</table>";
         resultDivText = resultDiv.html(txtResults);
         showIdFunction = function(event) {
-            /*
-            var dt = new Date();
-            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-            console.log("come showIdFunction =",time);
-            */
+            
             var eventParam = event;
             // event object
             var targetObj = eventParam.target;
@@ -122,11 +108,6 @@ listsFunction = function() {
             // string
             btns[i] = $("#"+buttonShowId);
             btnsOnClicks[i] = btns[i].click(showIdFunction);
-            /*
-            var dt = new Date();
-            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-            console.log("register btn On Click = ",time,buttonId);
-            */
         }
     }
     ajaxListParams = {
@@ -135,10 +116,5 @@ listsFunction = function() {
         success: successListFunction
     }
     callAjax = $.ajax(ajaxListParams);
-    /*
-    var dt = new Date();
-    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-    console.log("register $.ajx function =",time);
-    */
     
 };

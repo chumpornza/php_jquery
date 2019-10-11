@@ -27,35 +27,16 @@
     <script type="text/javascript">
         documentTag = $(document);
         readyFunction = function() {
-            /*
-            var dt = new Date();
-            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-            console.log("come ready function =",time);
-            */
+            
             lists = listsFunction();
             //lists type = undefined
-            /*
-            var dt = new Date();
-            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-            console.log("register lists function =",time);
-            */
+            
             btnSave = $("#btnSave");
             
             btnSaveOnClick = btnSave.click(btnSaveFunction);
-            /*
-            var dt = new Date();
-            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-            console.log("register .click =",time);
-            */
         };
         documentTagReady = documentTag.ready(readyFunction);
-        /*
-        if(documentTagReady) {
-            var dt = new Date();
-            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-            console.log("register ready =",time);
-        }
-        */
+        
     </script>
     </div>
 

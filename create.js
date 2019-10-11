@@ -1,9 +1,5 @@
 btnSaveFunction = function() {
-    /*
-    var dt = new Date();
-    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ":" + dt.getUTCMilliseconds();
-    console.log("come btnSaveFunction =",time);
-    */
+    
     firstnameTag = $("#firstname");
     firstname = firstnameTag.val();
     lastnameTag = $("#lastname");
